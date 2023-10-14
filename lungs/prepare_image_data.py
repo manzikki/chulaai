@@ -1,5 +1,5 @@
 #create a image - label mapping out of Data_Entry_2017_v2020.csv
-#Iterate over images, convert them to 128 x 128 byte arrays
+#Iterate over images, convert them to byte arrays
 #create a file lung_c.csv that contains the image data 16384 columns + no illness = 0, illness = 1
 import os, sys
 import PIL.Image
@@ -27,7 +27,7 @@ dir_list = os.listdir(".")
 for fitem in dir_list:
     if "png" in fitem and fitem in images_labels:
         print(fitem)
-        size = 128, 128
+        size = 28, 28
         outfile = "small-" + fitem
         im = PIL.Image.open(fitem)
         im.thumbnail(size, PIL.Image.Resampling.LANCZOS)
