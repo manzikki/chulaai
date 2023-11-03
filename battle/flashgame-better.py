@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import random
 
 ocean1 = [['0' for _ in range(10)] for _ in range(10)]
@@ -143,8 +143,11 @@ makeocean2()
 def start():
     p1oceanstr = htmlocean(ocean1)
     p2oceanstr = htmlocean_nofleet(ocean2)
+    rpar = request.args.get('R')
+    cpar = request.args.get('C')
+    print(rpar)
+    print(cpar)
     mstr = "Player 1 ocean <br>"+p1oceanstr+"<br>Player 2 ocean <br>"+p2oceanstr+"<br>"
-    #mstr = mstr + "<form method='GET'>ROW <input name='R'>COL <input name='C'> <input type='submit' value='Submit'></form>" 
     return mstr
 
 
